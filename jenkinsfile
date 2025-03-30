@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Code checkout') {
             steps {
-                 git branch: 'main', changelog: false, poll: false, url: 'https://github.com/michaelezenweke/edureka-abctech.git'
+                 git 'https://github.com/michaelezenweke/edureka-abctech.git'
             }
         }
         stage('Code Compile') {
