@@ -37,7 +37,11 @@
 			 <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-				 </plugin>
+		 <version>3.2.2</version>
+		  <configuration>
+		    <failOnMissingWebXml>false</failOnMissingWebXml> 
+				 </configuration>			
+			 </plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
