@@ -10,7 +10,7 @@ pipeline
 		{
 			steps
 			{
-				git 'https://github.com/jsachdev07/igp.git'
+				git 'git@github.com:michaelezenweke/edureka-abctech.git'
 			}
 		}
 		
@@ -45,7 +45,7 @@ pipeline
 			{
 			    sh 'cp /var/lib/jenkins/workspace/$JOB_NAME/target/abctechnologies.war /var/lib/jenkins/workspace/$JOB_NAME/abctechnologies.war'
 				
-                sh 'docker build -t jsachdev07/abc_tech:$BUILD_NUMBER .'
+                sh 'docker build -t mezenweke/abc_tech:$BUILD_NUMBER .'
 
 			}
 		}
@@ -54,9 +54,9 @@ pipeline
 		{ 
 			steps
 			{   
-			    withDockerRegistry([ credentialsId: "dockerhub", url: "" ])
+			    withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/repositories/mezenweke" ])
 			    {   
-			       sh 'docker push jsachdev07/abc_tech:$BUILD_NUMBER'
+			       sh 'docker push mezenweke/abc_tech:$BUILD_NUMBER'
 				   
 			    }
 			}
@@ -66,7 +66,7 @@ pipeline
 		{
 			steps
 			{
-				sh 'docker run -itd -P jsachdev07/abc_tech:$BUILD_NUMBER'
+				sh 'docker run -itd -P mezenweke/abc_tech:$BUILD_NUMBER'
 			}
 		}
 
