@@ -54,7 +54,7 @@ pipeline
 		{ 
 			steps
 			{   
-			    withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com" ])
+			    withDockerRegistry([ credentialsId: "dockerhub", url: "" ])
 			    {   
 			       sh 'docker push mezenweke/abc_tech:$BUILD_NUMBER'
 				   
