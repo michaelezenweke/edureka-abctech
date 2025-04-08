@@ -61,12 +61,20 @@ pipeline
 			    }
 			}
 		}
-
 		stage('Deploy as container')
 		{
 			steps
 			{
 				sh 'docker run -itd -P mezenweke/abc_tech:$BUILD_NUMBER'
+			}
+		}
+
+		stage('Deploy to kubernetes')
+		{
+			steps
+			{
+				sh 'kubectl apply -f abcdeploy.yaml'
+				sh 'kubectl apply -f abcservice.yaml'
 			}
 		}
 
